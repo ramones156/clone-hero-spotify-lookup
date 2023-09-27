@@ -1,9 +1,9 @@
 from dotenv import load_dotenv
+
 load_dotenv()
 import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-import requests
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=os.getenv("SPOTIPY_CLIENT_ID"),
@@ -12,8 +12,6 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     scope='user-library-read'
 ))
 
-def get_recent_liked_songs():
-    return sp.current_user_saved_tracks()
 
 def get_all_liked_songs():
     offset = 0
