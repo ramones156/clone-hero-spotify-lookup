@@ -41,8 +41,8 @@ if __name__ == "__main__":
 
     if download:
         downloader.download_songs(matches)
-        print(f'successfully downloaded {length(matches)} songs!');
+        print(f'successfully downloaded {len(matches)} songs!');
     else:
         downloader.store_output(matches)
-        print(f'successfully stored {length(matches)} songs!');
+        print(f'successfully stored {len(matches)} songs!');
 
