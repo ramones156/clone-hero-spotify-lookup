@@ -7,8 +7,6 @@ baseUrl = "https://drive.google.com/uc?id="
 
 
 def parse_share_to_download_link(share_link):
-    share_link = 'https://drive.google.com/file/d/1T7bQ48e6-9IDeRrjrHCd2gxlK27uSomq/view?usp=sharing'
-
     file_id_match = re.search(r'/d/([A-Za-z0-9_-]+)', share_link)
 
     if file_id_match:
