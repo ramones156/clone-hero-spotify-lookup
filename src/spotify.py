@@ -5,6 +5,8 @@ from spotipy.oauth2 import SpotifyOAuth
 from dotenv import load_dotenv
 load_dotenv()
 
+from yaspin import yaspin
+
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=os.getenv("SPOTIPY_CLIENT_ID"),
     client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
@@ -12,7 +14,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     scope='user-library-read'
 ))
 
-
+@yaspin(text="Fetching spotify songs...")
 def get_all_liked_songs():
     offset = 0
     all_liked_songs = []

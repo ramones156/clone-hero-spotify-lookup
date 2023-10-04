@@ -7,8 +7,8 @@ name = "pypi"
 spotipy = "*"
 requests = "*"
 python-dotenv = "*"
-google-api-python-client = "*"
 argparse = "*"
+yaspin = "*"
 
 [dev-packages]
 
