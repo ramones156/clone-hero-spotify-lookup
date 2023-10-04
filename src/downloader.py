@@ -19,8 +19,6 @@ def parse_share_to_download_link(share_link):
 def download_folder(title, link):
     download_link = parse_share_to_download_link(link);
 
-    os.makedirs('../output', exist_ok=True)
-
     destination_path = f"output/{title}.zip"
 
     response = requests.get(download_link)
@@ -34,9 +32,10 @@ def download_folder(title, link):
 
 
 def download_songs(matches):
+    os.makedirs('../output', exist_ok=True)
+
     for match in matches:
         download_folder(match.title, match.link)
-
 
 def download_exists(title):
     return os.path.isfile(f"output/{title}.zip")
