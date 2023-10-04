@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
         title = parse_title(name, artist)
 
-        if downloader.download_exists(title):
+        if download and downloader.download_exists(title):
             continue
 
         match = chorus.search_match(name, artist)
