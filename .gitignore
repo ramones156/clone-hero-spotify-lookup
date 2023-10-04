@@ -1,4 +1,17 @@
+# IDE
 .idea
+
+# sensitive
 .env
-.cache
+
+# dev
 output.txt
+output
+
+# build
+build
+dist
+
+# misc
+.cache
+main.spec
