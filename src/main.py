@@ -1,11 +1,9 @@
 import argparse
 from time import sleep
-import json
 
 import chorus
 import downloader
 import spotify
-
 from match import Match
 from track import parse_title
 
