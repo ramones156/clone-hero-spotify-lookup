@@ -1,4 +1,5 @@
 import argparse
+from time import sleep
 
 import chorus
 import downloader
@@ -35,15 +36,20 @@ if __name__ == "__main__":
         if download and downloader.download_exists(title):
             continue
 
-        match = chorus.search_match(name, artist)
+        match = chorus.find_match(name, artist)
         if match is not None:
-            match = Match(title, match['link']);
+            match = Match(title, match['driveFileName'], match['md5'])
             matches.append(match)
             print(f"{match.title} found")
 
+        sleep(0.4)  # TMR
+
+    # store matches
+    # chorus.store_matches(matches)
+
     if download:
         downloader.download_songs(matches)
-        print(f'successfully downloaded {len(matches)} songs!');
+        print(f'successfully downloaded {len(matches)} songs!')
     else:
         downloader.store_output(matches)
-        print(f'successfully stored {len(matches)} songs!');
+        print(f'successfully stored {len(matches)} songs!')

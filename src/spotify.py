@@ -6,8 +6,6 @@ from spotipy.oauth2 import SpotifyOAuth
 
 load_dotenv()
 
-from yaspin import yaspin
-
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=os.getenv("SPOTIPY_CLIENT_ID"),
     client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
@@ -16,16 +14,17 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
 ))
 
 
-@yaspin(text="Fetching spotify songs...")
 def get_all_liked_songs():
     offset = 0
+    limit = 20
     all_liked_songs = []
 
     while True:
-        liked_songs = sp.current_user_saved_tracks(offset=offset)
+        liked_songs = sp.current_user_saved_tracks(limit, offset)
         if not liked_songs['items']:
             break
+
         all_liked_songs.extend(liked_songs['items'])
-        offset += len(liked_songs['items'])
+        offset += limit
 
     return all_liked_songs

@@ -8,7 +8,6 @@ spotipy = "*"
 requests = "*"
 python-dotenv = "*"
 argparse = "*"
-yaspin = "*"
 
 [dev-packages]
 

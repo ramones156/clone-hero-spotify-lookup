@@ -1,4 +1,5 @@
 class Match:
-    def __init__(self, title, link):
+    def __init__(self, title, filename, md5):
         self.title = title
-        self.link = link
+        self.filename = filename
+        self.md5 = md5
