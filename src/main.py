@@ -3,8 +3,9 @@ import argparse
 import chorus
 import downloader
 import spotify
-from track import parse_title
 from match import Match
+from track import parse_title
+
 
 def args():
     parser = argparse.ArgumentParser(
@@ -14,6 +15,7 @@ def args():
     parser.add_argument('-d', '--download', action='store_true')
 
     return parser.parse_args()
+
 
 if __name__ == "__main__":
     args = args()
@@ -45,4 +47,3 @@ if __name__ == "__main__":
     else:
         downloader.store_output(matches)
         print(f'successfully stored {len(matches)} songs!');
-

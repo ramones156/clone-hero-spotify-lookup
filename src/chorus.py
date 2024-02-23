@@ -2,6 +2,7 @@ import requests
 
 baseUrl = "https://chorus.fightthe.pw/api/search?query="
 
+
 def search_match(name, artist):
     url = baseUrl + "name=\"" + name + "\" artist=\"" + artist + "\""  # dont ask why
 

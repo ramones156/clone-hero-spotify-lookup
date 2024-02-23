@@ -1,8 +1,9 @@
 import os
+
 import spotipy
+from dotenv import load_dotenv
 from spotipy.oauth2 import SpotifyOAuth
 
-from dotenv import load_dotenv
 load_dotenv()
 
 from yaspin import yaspin
@@ -13,6 +14,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     redirect_uri=os.getenv("SPOTIPY_REDIRECT_URI"),
     scope='user-library-read'
 ))
+
 
 @yaspin(text="Fetching spotify songs...")
 def get_all_liked_songs():

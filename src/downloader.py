@@ -5,6 +5,7 @@ import requests
 
 baseUrl = "https://drive.google.com/uc?id="
 
+
 def parse_share_to_download_link(share_link):
     file_id_match = re.search(r'\/d\/(.*?)\/view|\/folders\/(.*)?', share_link)
 
@@ -14,13 +15,14 @@ def parse_share_to_download_link(share_link):
     else:
         raise Exception(f'cant extract ID from {share_link}')
 
+
 def download_folder(title, link):
     try:
         download_link = parse_share_to_download_link(link);
     except Exception as e:
         print(e)
         return
-       
+
     destination_path = f"output/{title}.zip"
 
     response = requests.get(download_link)
@@ -32,6 +34,7 @@ def download_folder(title, link):
     else:
         raise Exception(f"Failed to download {title}. Status {response.status_code}")
 
+
 def download_songs(matches):
     os.makedirs('../output', exist_ok=True)
 
@@ -40,7 +43,8 @@ def download_songs(matches):
             download_folder(match.title, match.link)
         except Exception as e:
             print(e)
-            
+
+
 def download_exists(title):
     return os.path.isfile(f"output/{title}.zip")
 
